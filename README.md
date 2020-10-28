@@ -1,5 +1,5 @@
-Author: Mary Jane Aguelo
-Packages Added: Moment, Axios, Redux, React-Navigation
+###### Author: Mary Jane Aguelo
+###### Packages Added: Moment, Axios, Redux, React-Navigation
 
 ## setup app
 
