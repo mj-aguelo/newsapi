@@ -37,11 +37,15 @@ const handleResponse = (res) => {
   return res && res.data;
 };
 
-const getCurrentDate = () => {
+const getDate = () => {
   Moment.locale('en');
-  // return Moment(new Date()).format('YYYY-MM-DD');
+  let date = new Date();
+  let dateBefore = new Date();
+  dateBefore.setDate(dateBefore.getDate() - 1);
 
-  return '2020-10-28';
+  return `from=${Moment(dateBefore).format('YYYY-MM-DD')}&to=${Moment(
+    date,
+  ).format('YYYY-MM-DD')}`;
 };
 
 const requests = {
@@ -52,7 +56,7 @@ const requests = {
 const News = {
   getMostRecent: () =>
     requests.get(
-      `/v2/everything?from=${getCurrentDate()}&sortBy=publishedAt&apiKey=${API_KEY}&q=sports`,
+      `/v2/everything?${getDate()}&sortBy=publishedAt&apiKey=${API_KEY}&q=sports`,
     ),
 };
 
